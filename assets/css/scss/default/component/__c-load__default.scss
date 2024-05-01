@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+@import "default/component/c__default";
+@import "default/component/c-ico__default";
+@import "default/component/c-btn__default";
+@import "default/component/c-link__default";
+@import "default/component/c-ttl__default";
+@import "default/component/c-txt__default";
+@import "default/component/c-img__default";
+@import "default/component/c-form__default";
+@import "default/component/c-list__default";
+@import "default/component/c-table__default";
+
+
+@mixin c-output__default($device: all, $bp: sp-tb-pc) {
+	@include c__default($device: $device, $bp: $bp);
+	@include c-form__default($device: $device, $bp: $bp);
+	@include c-ico__default($device: $device, $bp: $bp);
+	@include c-btn__default($device: $device, $bp: $bp);
+	@include c-link__default($device: $device, $bp: $bp);
+	@include c-ttl__default($device: $device, $bp: $bp);
+	@include c-txt__default($device: $device, $bp: $bp);
+	@include c-img__default($device: $device, $bp: $bp);
+	@include c-list__default($device: $device, $bp: $bp);
+	@include c-table__default($device: $device, $bp: $bp);
+}
+

@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+
+// media query
+
+//// sp
+$xxs_max: "and (max-width : "+$xxs_max_num+"px)"; // ~374
+$xs_min: "and (min-width : "+$xs_min_num+"px)"; // 375~
+$xs_max: "and (max-width : "+$xs_max_num+"px)"; // ~480
+
+//// tb
+$sm_min: "and (min-width : "+$sm_min_num+"px)"; // 481~
+$sm_max: "and (max-width : "+$sm_max_num+"px)"; // ~767
+$md_min: "and (min-width : "+$md_min_num+"px)"; // 768~
+$md_max: "and (max-width : "+$md_max_num+"px)"; // ~991
+
+//// pc
+$lg_min: "and (min-width : "+$lg_min_num+"px)"; // 992~
+$lg_max: "and (max-width : "+$lg_max_num+"px)"; // ~1100
+$xl_min: "and (min-width : "+$xl_min_num+"px)"; // 1101~
+$xl_max: "and (max-width : "+$xl_max_num+"px)"; // ~1200
+$xxl_min: "and (min-width : "+$xxl_min_num+"px)"; // 1201~
+
+
+
+@mixin mq($device: all, $bp: sp-pc, $sz: all, $w_min: 0, $w_max: 0, $h_min: 0, $h_max: 0 ) {
+	@if $w_min == 0 and $w_max == 0 and $h_min == 0 and $h_max == 0 {
+		@if $sz == all {
+						@content;
+		} @else if $sz == sp {
+			@if $device == all {
+				@if $bp == sp-pc {
+					@media screen #{$sm_max} {
+						@content;
+					}
+				} @else if $bp == sp-tb-pc or $bp == sp-tbpc {
+					@media screen #{$xs_max} {
+						@content;
+					}
+				} @else if $bp == sptb-pc {
+					@media screen #{$md_max} {
+						@content;
+					}
+				}
+			} @else if $device == sp {
+						@content;
+			} @else if $device == tb {
+				@if $bp == sp-pc {
+					@media screen #{$sm_max} {
+						@content;
+					}
+				} @else if $bp == sptb-pc {
+						@content;
+				}
+			} @else if $device == wsp {
+				@if $bp == sp-pc or $bp == sptb-pc {
+						@content;
+				} @else if $bp == sp-tb-pc or $bp == sp-tbpc {
+					@media screen #{$xs_max} {
+						@content;
+					}
+				}
+			} @else if $device == wpc {
+				@if $bp == sptb-pc {
+					@media screen #{$md_max} {
+						@content;
+					}
+				}
+			}
+		} @else if $sz == pc {
+			@if $device == all {
+				@if $bp == sp-pc {
+					@media screen #{$md_min} {
+						@content;
+					}
+				} @else if $bp == sp-tb-pc or $bp == sptb-pc {
+					@media screen #{$lg_min} {
+						@content;
+					}
+				} @else if $bp == sp-tbpc {
+					@media screen #{$sm_min} {
+						@content;
+					}
+				}
+			} @else if $device == pc {
+						@content;
+			} @else if $device == tb {
+				@if $bp == sp-pc {
+					@media screen #{$md_min} {
+						@content;
+					}
+				} @else if $bp == sp-tbpc {
+						@content;
+				}
+			} @else if $device == wsp {
+				@if $bp == sp-tbpc {
+					@media screen #{$sm_min} {
+						@content;
+					}
+				}
+			} @else if $device == wpc {
+				@if $bp == sp-tb-pc or $bp == sptb-pc {
+					@media screen #{$lg_min} {
+						@content;
+					}
+				} @else {
+						@content;
+				}
+			}
+		} @else if $sz == tb {
+			@if $device == all {
+				@if $bp == sp-tb-pc or $bp == sp-tbpc or $bp == sptb-pc {
+					@media screen #{$sm_min}#{$md_max} {
+						@content;
+					}
+				} @else if $bp == sp-pc {
+					@media screen #{$md_min}#{$md_max} {
+						@content;
+					}
+				}
+			} @else if $device == tb {
+				@if $bp == sp-tb-pc or $bp == sp-tbpc or $bp == sptb-pc {
+						@content;
+				} @else if $bp == sp-pc {
+					@media screen #{$md_min} {
+						@content;
+					}
+				}
+			} @else if $device == wpc {
+					@media screen #{$md_max} {
+						@content;
+					}
+			} @else if $device == wsp {
+				@if $bp == sp-tb-pc or $bp == sp-tbpc or $bp == sptb-pc {
+					@media screen #{$sm_min} {
+						@content;
+					}
+				}
+			}
+
+
+
+		} @else if $sz == xxs {
+			@if $device == all or $device == sp or $device == wsp {
+					@media screen #{$xxs_max} {
+						@content;
+					}
+			}
+		} @else if $sz == xs {
+			@if $device == all or $device == wsp {
+					@media screen #{$xs_min}#{$xs_max} {
+						@content;
+					}
+			} @else if $device == sp {
+					@media screen #{$xs_min} {
+						@content;
+					}
+			}
+		} @else if $sz == sm {
+			@if $device == all {
+					@media screen #{$sm_min}#{$sm_max} {
+						@content;
+					}
+			} @else if $device == tb {
+					@media screen #{$sm_max} {
+						@content;
+					}
+			} @else if $device == wsp {
+					@media screen #{$sm_min} {
+						@content;
+					}
+			}
+		} @else if $sz == md {
+			@if $device == all {
+					@media screen #{$md_min}#{$md_max} {
+						@content;
+					}
+			} @else if $device == tb {
+					@media screen #{$md_min} {
+						@content;
+					}
+			} @else if $device == wpc {
+					@media screen #{$md_max} {
+						@content;
+					}
+			}
+		} @else if $sz == lg {
+			@if $device == all or $device == wpc {
+					@media screen #{$lg_min}#{$lg_max} {
+						@content;
+					}
+			} @else if $device == pc {
+					@media screen #{$lg_max} {
+						@content;
+					}
+			}
+		} @else if $sz == xl {
+			@if $device == all or $device == pc or $device == wpc {
+					@media screen #{$xl_min}#{$xl_max} {
+						@content;
+					}
+			}
+		} @else if $sz == xxl {
+			@if $device == all or $device == pc or $device == wpc {
+					@media screen #{$xxl_min} {
+						@content;
+					}
+			}
+
+
+
+		}
+
+	} @else {
+
+		$num_w_min: "";
+		$num_w_max: "";
+		$num_h_min: "";
+		$num_h_max: "";
+
+		@if $w_min > 0 {
+			$num_w_min: "and (min-width : "+$w_min+"px)";
+		}
+		@if $w_max > 0 {
+			$num_w_max: "and (max-width : "+$w_max+"px)";
+		}
+		@if $h_min > 0 {
+			$num_h_min: "and (min-height : "+$h_min+"px)";
+		}
+		@if $h_max > 0 {
+			$num_h_max: "and (max-height : "+$h_max+"px)";
+		}
+
+		@media screen #{$num_w_min}#{$num_w_max}#{$num_h_min}#{$num_h_max} {
+			@content;
+		}
+
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

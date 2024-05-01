@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@mixin t__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%t-flag {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+
+
+}
+
+
+
+
+
+
+

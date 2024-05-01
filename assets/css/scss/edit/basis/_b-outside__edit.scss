@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+
+@mixin b-outside__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.w {
+		width: 100%;
+		min-width: 0;
+		background-color: transparent;
+
+		@include cf();
+
+		@include mq($sz: sp, $device: $device, $bp: $bp) {
+			padding-left: 15px;
+			padding-right: 15px;
+
+		}
+		@include mq($sz: pc, $device: $device, $bp: $bp) {
+			padding-left: 30px;
+			padding-right: 30px;
+
+		}
+		@include mq($sz: tb, $device: $device, $bp: $bp) {
+			padding-left: 20px;
+			padding-right: 20px;
+
+		}
+
+		@include mq($sz: xxs, $device: $device, $bp: $bp) {
+			padding-left: 10px;
+			padding-right: 10px;
+
+		}
+
+	}
+
+	// guide
+	.g {
+		width: 100%;
+		min-width: 0;
+		margin-left: auto;
+		margin-right: auto;
+
+		@include cf();
+
+		$mxws: $mxws;
+		@include g_set($mxws: $mxws);
+
+		&.m-haln__left {
+			margin-left: 0;
+			margin-right: auto;
+		}
+		&.m-haln__right {
+			margin-left: auto;
+			margin-right: 0;
+		}
+
+	}
+
+
+}
+
+
+

@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+
+
+// lineHeightCrop
+@mixin lineHeightCrop($lh: 1.5, $dp: block) {
+	@if $dp == flex or $dp == f {
+		& > *:first-child {
+			margin-top: (1 - $lh)/2+em;
+		}
+		& > *:last-child {
+			margin-bottom: (1 - $lh)/2+em;
+		}
+	} @else {
+		&::before, &::after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+		}
+		&::before {
+			margin-top: (1 - $lh)/2+em;
+		}
+		&::after {
+			margin-bottom: (1 - $lh)/2+em;
+		}
+	}
+
+}
+
+
+// clearfix
+@mixin cf() {
+	@include ba($ba: a, $dp: block) {
+		clear: both;
+	}
+}
+
+
+// guide set
+@mixin g_set($mxws: false) {
+	$i: 0;
+	@if $mxws {
+		@each $mxw in $mxws {
+			@if $i == 0 {
+					max-width: #{$mxw}px;
+			} @else {
+				&.m-mxw__#{$mxw} {
+					max-width: #{$mxw}px;
+				}
+			}
+			$i: $i + 1;
+		}
+	}
+}
+
+
+
+
+// before after
+@mixin ba_bs($dp: inline-block) {
+	content: "";
+	display: $dp;
+}
+
+@mixin ba($ba: b, $dp: inline-block, $bs: true) {
+	@if $ba == b or $ba == before {
+		&::before {
+			@if $bs == true {
+				@include ba_bs($dp);
+			}
+			@content;
+		}
+	} @else if $ba == a or $ba == after {
+		&::after {
+			@if $bs == true {
+				@include ba_bs($dp);
+			}
+			@content;
+		}
+	} @else if $ba == ba or $ba == beforeafter {
+		&::before, &::after {
+			@if $bs == true {
+				@include ba_bs($dp);
+			}
+			@content;
+		}
+	}
+
+}
+
+
+// text-align
+@mixin txtalign_select($ta: false) {
+	@if $ta == l or $ta == left {
+		text-align: left;
+	} @else if $ta == c or $ta == center {
+		text-align: center;
+	} @else if $ta == r or $ta == right {
+		text-align: right;
+	} @else if $ta == j or $ta == justify {
+		text-align: justify;
+	}
+
+}
+
+// halign
+@mixin halign_select($ta: false) {
+	@if $ta == l or $ta == left {
+		@include flexbox_left();
+	} @else if $ta == c or $ta == center {
+		@include flexbox_center();
+	} @else if $ta == r or $ta == right {
+		@include flexbox_right();
+	}
+
+}
+
+
+// only
+@mixin only_set($device: all, $bp: sp-pc) {
+	@if $bp == sp-pc or $bp == sptb-pc or $bp == sp-tbpc {
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			.only-pc {
+				display: none;
+			}
+		}
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			.only-sp {
+				display: none;
+			}
+		}
+	} @else if $bp == sp-tb-pc {
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			.only-pc, .only-tb {
+				display: none;
+			}
+		}
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			.only-sp, .only-tb {
+				display: none;
+			}
+		}
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			.only-sp, .only-pc {
+				display: none;
+			}
+		}
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+
+
+@import "default/javascript/js__default";
+
+
+@mixin js-output__default($device: all, $bp: sp-tb-pc) {
+	@include js__default($device: $device, $bp: $bp);
+}
+

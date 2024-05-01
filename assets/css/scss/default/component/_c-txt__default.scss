@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+
+
+@mixin c-txt__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%c-txt {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			line-height: $lh_txt;
+			text-align: justify;
+			@include lineHeightCrop($lh: $lh_txt, $dp: f);
+
+			p, ul, ol, dl, table {
+				margin-bottom: $lh_txt+em;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+

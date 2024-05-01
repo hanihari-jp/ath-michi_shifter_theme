@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+
+@mixin l-footer__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.l-footer {
+
+		//@extend %l-footer;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			padding-top: 30px;
+			padding-bottom: 30px;
+
+			&_nav {
+				//text-align: center;
+				font-size: 1.4rem;
+
+				ul {
+					border-top: solid 1px $clr_gy02;
+				}
+
+				li {
+					border-bottom: solid 1px $clr_gy02;
+				}
+
+				a {
+					display: block;
+					padding: 10px;
+					color: $clr_bk02;
+					text-decoration: none;
+				}
+			}
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			padding-top: 36px;
+			padding-bottom: 36px;
+
+			&_nav {
+				text-align: center;
+				font-size: 1.4rem;
+				li {
+					display: inline-block;
+					padding: 0 10px;
+				}
+				a {
+					display: block;
+					color: $clr_bk02;
+					text-decoration: none;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+	.l-footerNav {
+
+		//@extend %l-footerNav;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+	.l-copy {
+
+		//@extend %l-copy;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			text-align: center;
+			font-size: 1.1rem;
+			padding-bottom: 20px;
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			text-align: center;
+			font-size: 1.2rem;
+			padding-top: 36px;
+			padding-bottom: 24px;
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+	.l-scrolltop {
+
+		//@extend %l-scrolltop;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+	.l-fixedFooter {
+
+		//@extend %l-fixedFooter;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+
+
+
+}
+
+
+
+
+
+
+

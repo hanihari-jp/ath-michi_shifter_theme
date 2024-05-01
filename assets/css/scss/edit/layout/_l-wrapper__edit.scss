@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+
+@mixin l-wrapper__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.l-wrapper {
+
+		//@extend %l-wrapper;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			max-width: 100vw;
+			overflow: hidden;
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+
+
+
+
+
+

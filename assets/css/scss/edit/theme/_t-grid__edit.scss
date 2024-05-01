@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+@mixin t-grid__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.t-grid {
+
+		@extend %t-grid;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			$cols: "1-1", "1-2";
+			$wrap: true;
+			@include modifier_grid_col($cols: $cols, $wrap: $wrap, $sz: $sz);
+
+			$cols: "1-1", "1-2";
+			$wrap: false;
+			@include modifier_grid_col($cols: $cols, $wrap: $wrap, $sz: $sz);
+
+			$lrs: 10, 20;
+			$bs: 10, 20;
+			@include modifier_grid_spc($lrs: $lrs, $bs: $bs, $sz: $sz);
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			$cols: "1-1", "1-2", "1-3", "1-4";
+			$wrap: true;
+			@include modifier_grid_col($cols: $cols, $wrap: $wrap, $sz: $sz);
+
+			$cols: "2-3", "3-4";
+			$wrap: false;
+			@include modifier_grid_col($cols: $cols, $wrap: $wrap, $sz: $sz);
+
+			$lrs: 20;
+			$bs: 20;
+			@include modifier_grid_spc($lrs: $lrs, $bs: $bs, $sz: $sz);
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+
+

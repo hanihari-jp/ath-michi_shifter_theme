@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// import
+
+@import "edit/basis/b-fonts__edit";
+@import "edit/basis/b-reset__edit";
+@import "edit/basis/b-normalize__edit";
+@import "edit/basis/b-outside__edit";
+@import "edit/basis/b__edit";
+
+
+
+@mixin b-output__edit($device: all, $bp: sp-tb-pc) {
+	@include b-fonts__edit($device: $device, $bp: $bp);
+	@include b-reset__edit($device: $device, $bp: $bp);
+	@include b-normalize__edit($device: $device, $bp: $bp);
+	@include b-outside__edit($device: $device, $bp: $bp);
+	@include b__edit($device: $device, $bp: $bp);
+}
+
+

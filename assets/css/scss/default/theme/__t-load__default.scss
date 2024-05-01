@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+
+@import "default/theme/t__default";
+@import "default/theme/t-bg__default";
+@import "default/theme/t-fnt__default";
+@import "default/theme/t-grid__default";
+@import "default/theme/t-spc__default";
+
+
+@mixin t-output__default($device: all, $bp: sp-tb-pc) {
+	@include t-fnt__default($device: $device, $bp: $bp);
+	@include t-bg__default($device: $device, $bp: $bp);
+	@include t-spc__default($device: $device, $bp: $bp);
+	@include t-grid__default($device: $device, $bp: $bp);
+	@include t__default($device: $device, $bp: $bp);
+}
+

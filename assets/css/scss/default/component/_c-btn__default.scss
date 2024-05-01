@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+
+@mixin c-btn__default( $device: all, $bp: sp-tb-pc ) {
+	$bp: $bp;
+
+	%c-btn {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include btn_sct() {
+				font-size: 1rem;
+				line-height: $lh_btn;
+				text-decoration: none;
+				border-width: 1px;
+				border-style: solid;
+				box-sizing: border-box;
+				position: relative;
+				overflow: hidden;
+				transition: $transition;
+				cursor: pointer;
+				max-width: 100%;
+				max-height: 100%;
+				text-align: center;
+
+
+				@include flexbox_inline();
+				@include flexbox_align_center();
+				@include flexbox_center();
+
+				@include lineHeightCrop($lh: $lh_btn, $dp: flex);
+
+				border-color: $clr_body;
+				background-color: $clr_body;
+
+				min-width: 140px;
+				min-height: 40px;
+				padding: 10px;
+
+				@include btn_sct_child($prnt: false, $btn: true) {
+					color: $clr_wt01;
+					font-size: ($fs_body_sp/10)+rem;
+					border: 0 !important;
+				}
+
+				&:hover {
+					opacity: 1;
+					background-color: $clr_wt01;
+
+					@include btn_sct_child($prnt: false, $btn: true) {
+						color: $clr_body;
+					}
+
+				}
+
+
+			}
+
+
+			&%m-arrow {
+				@include btn_sct() {
+					@include ba($ba: a, $dp: inline-block, $bs: true) {
+
+						border-color: $clr_wt01;
+						position: absolute;
+						top: 50%;
+						right: 20px;
+
+					}
+					&:hover {
+						&::after {
+							border-color: $clr_body;
+						}
+					}
+				}
+
+			}
+			&%m-arrowTri {
+
+				$wdt: 5;
+				$hgt: 7;
+				$dct: right;
+				$btn: true;
+				@include btn_arwTri($wdt: $wdt, $hgt: $hgt, $dct: $dct, $btn: $btn);
+
+				@include btn_sct_arrow(true) {
+					@if( $dct == right or $dct == left ){
+						margin-top: ($wdt/-1)+px;
+					} @else {
+						margin-top: ($hgt/-2)+px;
+					}
+				}
+
+			}
+			&%m-arrowThan {
+
+				$bwdt: 2;
+				$hgt: 7;
+				$dct: right;
+				$btn: true;
+				@include btn_arwThan($bwdt: $bwdt, $hgt: $hgt, $dct: $dct, $btn: $btn);
+
+				@include btn_sct_arrow(true) {
+					margin-top: ($hgt/-1.414)+px;
+				}
+
+			}
+			&%m-arrowSkew {
+
+				$bwdt: 1.5;
+				$wdt: 20;
+				$hgt: 5;
+				$btn: true;
+				@include btn_arwSkew($bwdt: $bwdt, $wdt: $wdt, $hgt: $hgt, $btn: $btn);
+
+				@include btn_sct_arrow(true) {
+					margin-top: (($hgt/-1)+($bwdt/2))+px;
+				}
+
+			}
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+@import "edit/component/c__edit";
+@import "edit/component/c-ico__edit";
+@import "edit/component/c-btn__edit";
+@import "edit/component/c-link__edit";
+@import "edit/component/c-ttl__edit";
+@import "edit/component/c-txt__edit";
+@import "edit/component/c-img__edit";
+@import "edit/component/c-form__edit";
+@import "edit/component/c-list__edit";
+@import "edit/component/c-table__edit";
+
+
+@mixin c-output__edit($device: all, $bp: sp-tb-pc) {
+	@include c-ico__edit($device: $device, $bp: $bp);
+	@include c-btn__edit($device: $device, $bp: $bp);
+	@include c-link__edit($device: $device, $bp: $bp);
+	@include c-ttl__edit($device: $device, $bp: $bp);
+	@include c-txt__edit($device: $device, $bp: $bp);
+	@include c-img__edit($device: $device, $bp: $bp);
+	@include c-form__edit($device: $device, $bp: $bp);
+	@include c-list__edit($device: $device, $bp: $bp);
+	@include c-table__edit($device: $device, $bp: $bp);
+	@include c__edit($device: $device, $bp: $bp);
+}
+

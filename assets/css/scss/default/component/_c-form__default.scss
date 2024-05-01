@@ -1,0 +1,339 @@
+@charset "UTF-8";
+
+
+@mixin c-form__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%c-form {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			input,
+			button,
+			select,
+			textarea {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				background: transparent;
+				border: none;
+				border-radius: 0;
+				font: inherit;
+				outline: none;
+			    max-width: 100%;
+			}
+
+			textarea {
+				resize: vertical;
+			}
+
+
+
+
+			input[type="submit"],
+			input[type="button"] {
+				border-radius: 0;
+				-webkit-box-sizing: content-box;
+				-webkit-appearance: button;
+				appearance: button;
+				border: none;
+				box-sizing: border-box;
+				cursor: pointer;
+			}
+			input[type="submit"]::-webkit-search-decoration,
+			input[type="button"]::-webkit-search-decoration {
+				display: none;
+			}
+			input[type="submit"]::focus,
+			input[type="button"]::focus {
+				outline-offset: -2px;
+			}
+
+
+
+			input[type="text"],
+			input[type="search"],
+			input[type="tel"],
+			input[type="url"],
+			input[type="email"],
+			input[type="password"],
+			input[type="datetime"],
+			input[type="date"],
+			input[type="month"],
+			input[type="week"],
+			input[type="time"],
+			input[type="datetime-local"],
+			input[type="number"],
+			input[type="range"],
+			input[type="color"],
+			input[type="color"],
+			textarea {
+				border: solid 1px $clr_body;
+				padding: 0 .5em;
+				height: 2em;
+				width: 20em;
+				line-height: 1.3;
+				max-width: 100%;
+				vertical-align: top;
+
+				&::placeholder {
+					color: $clr_gy01;
+				}
+			}
+
+			textarea {
+				height: 5.2em;
+				line-height: 1.5;
+				padding-top: .25em;
+				padding-bottom: .25em;
+				vertical-align: top;
+			}
+
+
+			input[type="checkbox"],
+			input[type="radio"] {
+				display: none;
+			}
+
+			input[type="radio"] + label, input[type="radio"] + span {
+				display: inline-block;
+				position: relative;
+				padding: 1px 0 1px 1.5em;
+				line-height: 2;
+
+				@include ba($ba: b, $dp: block) {
+					width: 1em;
+					height: 1em;
+					border: solid 1px $clr_body;
+					border-radius: 100px;
+					box-sizing: border-box;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -.5em;
+				}
+				@include ba($ba: a, $dp: none) {
+					width: .5em;
+					height: .5em;
+					background-color: $clr_body;
+					border-radius: 100px;
+					position: absolute;
+					top: 50%;
+					left: .25em;
+					margin-top: -.25em;
+				}
+			}
+			input[type="radio"]:checked + label, input[type="radio"]:checked + span {
+				@include ba($ba: a, $dp: block);
+			}
+
+
+			input[type="checkbox"] + label, input[type="checkbox"] + span {
+				display: inline-block;
+				position: relative;
+				padding: 1px 0 1px 1.5em;
+				line-height: 2;
+
+				@include ba($ba: b, $dp: block) {
+					width: 1em;
+					height: 1em;
+					border: solid 1px $clr_body;
+					border-radius: 2px;
+					box-sizing: border-box;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					margin-top: -.5em;
+				}
+				@include ba($ba: a, $dp: none) {
+					width: .4em;
+					height: .7em;
+					border-right: solid 3px $clr_body;
+					border-bottom: solid 3px $clr_body;
+					box-sizing: border-box;
+					border-radius: 0;
+					position: absolute;
+					top: 50%;
+					left: .33em;
+					margin-top: -.4em;
+					-webkit-transform: rotate(45deg);
+					   -moz-transform: rotate(45deg);
+					    -ms-transform: rotate(45deg);
+					     -o-transform: rotate(45deg);
+					        transform: rotate(45deg);
+				}
+			}
+			input[type="checkbox"]:checked + label, input[type="checkbox"]:checked + span {
+				@include ba($ba: a, $dp: block);
+			}
+
+
+			.select_w {
+				display: inline-block;
+				border: solid 1px $clr_body;
+				position: relative;
+			    vertical-align: top;
+
+				@include ba(a) {
+					position: absolute;
+					top: 50%;
+
+					@include btn_arwTri($wdt: 5, $hgt: 7, $dct: bottom);
+					right: .5em;
+					margin-top: -3px;
+					z-index: 1;
+
+				}
+
+				select {
+					background-color: transparent;
+					padding: 0 1.5em 0 .5em;
+					width: 100%;
+					min-width: 10em;
+					height: 2em;
+					position: relative;
+					z-index: 2;
+				}
+
+			}
+
+
+			.file_w {
+				display: inline-block;
+			    vertical-align: top;
+
+				input[type="file"] {
+					display: none;
+				}
+				.fileLabel {
+					display: inline-block;
+					padding: 0 1em;
+					line-height: 2;
+					border: solid 1px $clr_body;
+					box-sizing: content-box;
+				}
+				.filename {
+					display: none;
+					.name {
+						display: inline-block;
+						margin-left: .25em;
+						font-size: .8em;
+					}
+					.reset {
+						display: inline-block;
+						margin-left: .25em;
+						font-size: .8em;
+						color: $clr_body;
+						position: relative;
+						cursor: pointer;
+						border: solid 1px $clr_body;
+						padding: 0 .3em 0 1.1em;
+						vertical-align: baseline;
+						&::before, &::after {
+							content: "";
+							width: .8em;
+							height: 1px;
+							background-color: $clr_body;
+							position: absolute;
+							top: 50%;
+							left: .2em;
+							margin-top: -.5px;
+						}
+						&::before {
+							-webkit-transform: rotate(45deg);
+							   -moz-transform: rotate(45deg);
+							    -ms-transform: rotate(45deg);
+							     -o-transform: rotate(45deg);
+							        transform: rotate(45deg);
+						}
+						&::after {
+							-webkit-transform: rotate(-45deg);
+							   -moz-transform: rotate(-45deg);
+							    -ms-transform: rotate(-45deg);
+							     -o-transform: rotate(-45deg);
+							        transform: rotate(-45deg);
+						}
+					}
+				}
+				&.is-changed {
+					.filename {
+						display: block;
+					}
+				}
+			}
+
+
+			input[type='submit'],
+			input[type='reset'],
+			input[type='button'],
+			label,
+			button,
+			select {
+			  cursor: pointer;
+			}
+
+			select::-ms-expand {
+			  display: none;
+			}
+			input[type="submit"],
+			input[type="reset"],
+			input[type="button"] {
+				border-radius: 0;
+				-webkit-box-sizing: content-box;
+				-webkit-appearance: button;
+				appearance: button;
+				border: none;
+				box-sizing: border-box;
+				cursor: pointer;
+				transition: $transition;
+			}
+			input[type="submit"]::-webkit-search-decoration,
+			input[type="reset"]::-webkit-search-decoration,
+			input[type="button"]::-webkit-search-decoration {
+				display: none;
+			}
+			input[type="submit"]::focus,
+			input[type="reset"]::focus,
+			input[type="button"]::focus {
+				outline-offset: -2px;
+			}
+
+			input[type='submit'],
+			input[type='reset'],
+			input[type='button'] {
+				display: inline-block;
+				border: solid 1px $clr_body;
+				padding: 0 1em;
+				letter-spacing: .5em;
+				text-indent: .5em;
+				height: 2em;
+				box-sizing: content-box;
+			}
+
+
+
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+	}
+
+}
+
+

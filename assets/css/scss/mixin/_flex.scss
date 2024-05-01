@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+
+@mixin flexbox() {
+	display: flex;
+	display: -ms-flexbox;
+	min-width: 100%;
+}
+@mixin flexbox_inline() {
+	display: inline-flex;
+	display: -ms-inline-flexbox;
+}
+@mixin flexbox_column() {
+	flex-direction: column;
+	-ms-flex-direction: column;
+}
+@mixin flexbox_column_reverse() {
+	flex-direction: column-reverse;
+	-ms-flex-direction: column-reverse;
+}
+@mixin flexbox_row() {
+	flex-direction: row;
+	-ms-flex-direction: row;
+}
+@mixin flexbox_row_reverse() {
+	flex-direction: row-reverse;
+	-ms-flex-direction: row-reverse;
+}
+@mixin flexbox_wrap() {
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+@mixin flexbox_wrap_reverse() {
+	-ms-flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
+}
+
+
+
+@mixin flexbox_align_top() {
+	-ms-grid-row-align: flex-start;
+	align-items: flex-start;
+}
+@mixin flexbox_align_center() {
+	-ms-grid-row-align: center;
+	align-items: center;
+}
+@mixin flexbox_align_bottom() {
+	-ms-grid-row-align: flex-end;
+	align-items: flex-end;
+}
+@mixin flexbox_left() {
+	-ms-flex-pack: flex-start;
+	justify-content: flex-start;
+}
+@mixin flexbox_center() {
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+@mixin flexbox_right() {
+	-ms-flex-pack: flex-end;
+	justify-content: flex-end;
+}
+@mixin flexbox_between() {
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+}
+@mixin flexbox_around() {
+	-ms-flex-pack: space-around;
+	justify-content: space-around;
+}
+
+
+
+
+
+

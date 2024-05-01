@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+@import "edit/project/p__edit";
+@import "edit/project/p-blog__edit";
+@import "edit/project/p-mv__edit";
+@import "edit/project/p-box__edit";
+@import "edit/project/p-modal__edit";
+@import "edit/project/p-sec__edit";
+@import "edit/project/p-art__edit";
+
+
+
+@mixin p-output__edit($device: all, $bp: sp-tb-pc) {
+	@include p-art__edit($device: $device, $bp: $bp);
+	@include p-blog__edit($device: $device, $bp: $bp);
+	@include p-box__edit($device: $device, $bp: $bp);
+	@include p-modal__edit($device: $device, $bp: $bp);
+	@include p-mv__edit($device: $device, $bp: $bp);
+	@include p-sec__edit($device: $device, $bp: $bp);
+	@include p__edit($device: $device, $bp: $bp);
+}
+
+
+

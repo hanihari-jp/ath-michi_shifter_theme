@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@mixin js__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+
+
+	.js-xxx {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+
+
+}
+
+
+
+
+
+
+

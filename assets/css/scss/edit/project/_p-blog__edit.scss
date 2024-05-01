@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+@mixin p-blog__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.p-blog {
+
+		@extend %p-blog;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			table {
+				@extend .c-table;
+			}
+			ul {
+				@extend %c-listUl;
+			}
+			ol {
+				@extend %c-listOl;
+			}
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+
+
+
+
+
+

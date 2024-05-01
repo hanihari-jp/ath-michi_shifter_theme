@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+
+@mixin table_sct() {
+	&, table {
+		@content;
+	}
+}
+
+
+@mixin table_layout_pc_rst($style: false) {
+
+	caption {
+		text-align: left;
+		line-height: 1.5;
+		margin-bottom: 10px;
+		font-weight: 700;
+		@include lineHeightCrop(1.5, b);
+	}
+
+	thead {
+		td, th {
+			text-align: center;
+			vertical-align: middle;
+		}
+	}
+	tbody {
+		th {
+			text-align: left;
+			vertical-align: top;
+		}
+		td {
+			text-align: justify;
+			vertical-align: top;
+		}
+	}
+
+	@if $style {
+		th, td {
+			border: solid 1px $clr_body;
+		}
+	}
+}
+
+
+
+
+@mixin table_layout_theadcol($cols: false, $style: false, $sz: sp) {
+
+	@if $cols {
+
+		display: block !important;
+		box-sizing: border-box;
+
+		caption, thead, tbody, tr, td, th {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		caption {
+			line-height: 1.5;
+			margin-bottom: 10px;
+			font-weight: 700;
+			@include lineHeightCrop($lh_body, block);
+		}
+
+
+		tr {
+			@include flexbox();
+			@include flexbox_wrap();
+
+			margin-bottom: $lh_body+em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		th {
+			@include flexbox();
+			@include flexbox_align_center();
+			@include grid_col(1, 1);
+		}
+		td {
+			text-align: justify;
+
+		}
+		&.is-attr, .is-attr {
+			thead {
+				display: none;
+			}
+			td::before {
+				content: attr(data-thead);
+				width: 100%;
+				font-weight: 700;
+				line-height: $lh_body;
+				box-sizing: border-box;
+				@include flexbox();
+				@include flexbox_align_center();
+
+			}
+		}
+
+
+		$sz_str: "";
+		@if $sz == all {
+			$sz_str: "";
+		} @else {
+			$sz_str: $sz+_;
+		}
+		@each $col in $cols {
+			&.m-col__#{$sz_str}#{$col} {
+				@include table_sct() {
+
+					td {
+						@include grid_col(1, $col);
+					}
+
+				}
+			}
+		}
+
+
+		@if $style {
+
+			tr {
+				border-top: solid 1px $clr_body;
+				border-left: solid 1px $clr_body;
+			}
+			th {
+				border-right: solid 1px $clr_body;
+				border-bottom: solid 1px $clr_body;
+				text-align: center;
+			}
+			td {
+				border-right: solid 1px $clr_body;
+				border-bottom: solid 1px $clr_body;
+			}
+			&.is-attr, .is-attr {
+				td::before {
+					border-bottom: solid 1px $clr_body;
+				}
+				td.is-nottl::before {
+					border: 0;
+				}
+			}
+
+		}
+
+
+	}
+
+
+
+
+
+}
+
+
+
+
+
+

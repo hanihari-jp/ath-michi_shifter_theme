@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+@mixin t-spc__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.t-spc {
+
+		//@extend %t-spc;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+
+
+}
+
+

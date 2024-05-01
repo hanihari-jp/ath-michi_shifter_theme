@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+
+@mixin t-grid__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%t-grid {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include modifier_grid_flex($sz: $sz);
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include modifier_grid_flex($sz: $sz);
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include modifier_grid_flex($sz: $sz);
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include modifier_grid_flex($sz: $sz);
+
+		}
+
+
+	}
+
+}
+
+
+

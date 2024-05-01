@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+
+@mixin c-form__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.c-form {
+
+		// ファイルアップロードは.js-fileの付与と該当jsソースが必須
+		@extend %c-form;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+	}
+
+}
+
+

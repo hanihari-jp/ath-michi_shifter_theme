@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+
+@mixin l-header__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.l-header {
+
+		@extend %l-header;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			text-align: center;
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			padding-top: 80px;
+			padding-bottom: 40px;
+
+			&_logo {
+				img {
+					width: 160px;
+				}
+			}
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			padding-top: 48px;
+			padding-bottom: 48px;
+
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+	.l-headerNav {
+
+		//@extend %l-headerNav;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+
+
+
+
+
+

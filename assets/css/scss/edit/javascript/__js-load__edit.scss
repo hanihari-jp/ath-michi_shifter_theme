@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+
+
+@import "edit/javascript/js__edit";
+
+
+@mixin js-output__edit($device: all, $bp: sp-tb-pc) {
+	@include js__edit($device: $device, $bp: $bp);
+}
+

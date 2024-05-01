@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+
+@mixin l-spNav__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.l-spNav {
+
+		//@extend %l-spNav;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+
+
+
+
+
+

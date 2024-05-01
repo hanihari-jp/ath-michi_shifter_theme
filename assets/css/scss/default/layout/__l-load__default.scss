@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "default/layout/l-wrapper__default";
+@import "default/layout/l-header__default";
+@import "default/layout/l-gNav__default";
+@import "default/layout/l-spHeader__default";
+@import "default/layout/l-spNav__default";
+@import "default/layout/l-main__default";
+@import "default/layout/l-column__default";
+@import "default/layout/l-breadcrumb__default";
+@import "default/layout/l-aside__default";
+@import "default/layout/l-footer__default";
+
+
+
+@mixin l-output__default($device: all, $bp: sp-tb-pc) {
+	@include l-aside__default($device: $device, $bp: $bp);
+	@include l-breadcrumb__default($device: $device, $bp: $bp);
+	@include l-column__default($device: $device, $bp: $bp);
+	@include l-footer__default($device: $device, $bp: $bp);
+	@include l-gNav__default($device: $device, $bp: $bp);
+	@include l-header__default($device: $device, $bp: $bp);
+	@include l-main__default($device: $device, $bp: $bp);
+	@include l-spHeader__default($device: $device, $bp: $bp);
+	@include l-spNav__default($device: $device, $bp: $bp);
+	@include l-wrapper__default($device: $device, $bp: $bp);
+}
+
+

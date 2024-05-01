@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+
+
+@mixin c-table__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%c-table {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+			@include table_sct() {
+				width: 100%;
+				table-layout: fixed;
+				border-collapse: collapse;
+			}
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+

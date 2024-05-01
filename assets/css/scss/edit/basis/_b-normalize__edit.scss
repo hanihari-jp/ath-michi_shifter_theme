@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+
+/* normalize */
+
+@mixin b-normalize__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			html {
+				font-size: 10px;
+				-webkit-text-size-adjust: 100%;
+			}
+
+			body {
+				font-family: $ff_body;
+				color: $clr_body;
+				background-color: transparent;
+				position: relative;
+				line-height: $lh_body;
+				font-weight: $fw_body;
+				letter-spacing: 0;
+				font-feature-settings: normal; // normal, palt
+				text-align: left;
+
+			}
+
+			a {
+				text-decoration: underline;
+				color: $clr_a;
+				transition: $transition;
+
+				&:hover {
+					opacity: $opacity;
+				}
+			}
+
+			.xs {
+				font-size: .7em;
+			}
+			.s {
+				font-size: .85em;
+			}
+			.l {
+				font-size: 1.15em;
+			}
+			.xl {
+				font-size: 1.3em;
+			}
+
+
+			.b {
+				font-weight: 700;
+			}
+			.i {
+				font-style: italic;
+			}
+
+
+			.maker {
+				background:linear-gradient(transparent 40%, $clr_ye01 40%);
+				padding-bottom: .25em;
+				background-repeat: no-repeat;
+				background-position: left bottom;
+				background-size: 100% 100%;
+				transition: all 1s ease;
+
+				&.is-active {
+					background-size: 100% 100%;
+				}
+			}
+
+
+			.ff__gothic {
+				font-family: $ff_gothic;
+			}
+			.ff__mincho {
+				font-family: $ff_mincho;
+			}
+			.ff__en {
+				font-family: $ff_en;
+			}
+
+
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			body {
+				font-size: $fs_body_sp+px;
+				font-size: ($fs_body_sp/10)+rem;
+			}
+			.only_pc {
+				display: none;
+			}
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			body {
+				font-size: $fs_body_pc+px;
+				font-size: ($fs_body_pc/10)+rem;
+
+			}
+			.only_sp {
+				display: none;
+			}
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+
+
+}
+
+

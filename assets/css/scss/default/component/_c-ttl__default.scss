@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+
+
+@mixin c-ttl__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%c-ttl {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			&, .h {
+				font-size: 1rem;
+				line-height: 1;
+			}
+
+
+			.sm, .md, .lg, .en, .ja {
+				display: block;
+				font-size: ($fs_ttl_sp/10)+rem;
+				font-weight: $fw_ttl;
+
+				span {
+					display: inline-block;
+					line-height: $lh_ttl;
+					@include lineHeightCrop($lh: $lh_ttl);
+				}
+			}
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			.sm, .md, .lg, .en, .ja {
+				font-size: ($fs_ttl_pc/10)+rem;
+			}
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+
+	}
+
+}
+
+

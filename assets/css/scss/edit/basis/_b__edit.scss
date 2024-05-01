@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+
+/* normalize */
+
+@mixin b__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+
+		@include only_set($device: $device, $bp: $bp);
+
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			.cf {
+				&::after {
+					content: "";
+					display: block;
+					clear: both;
+				}
+			}
+
+			.vh {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				border: 0;
+				clip: rect(0 0 0 0);
+				overflow: hidden;
+			}
+			.ir {
+				text-indent: 200%;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+
+
+}
+
+

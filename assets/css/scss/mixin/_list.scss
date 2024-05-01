@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+
+
+
+@mixin list_inside_fullem($pref: "・") {
+
+	li {
+		padding-left: 1em;
+		text-indent: -1em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: "#{$pref}";
+			display: inline;
+		}
+	}
+
+}
+@mixin list_inside_fullem2($pref: "■") {
+
+	li {
+		padding-left: 1.3em;
+		text-indent: -1.3em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: "#{$pref}";
+			display: inline;
+			margin-right: .3em;
+		}
+	}
+
+}
+
+@mixin list_inside_halfem($pref: "-") {
+
+	li {
+		padding-left: .8em;
+		text-indent: -.8em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: "#{$pref}";
+			display: inline;
+			margin-right: .3em;
+		}
+	}
+
+}
+@mixin list_inside_half2em($pref: "--") {
+
+	li {
+		padding-left: 1.3em;
+		text-indent: -1.3em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: "#{$pref}";
+			display: inline;
+			margin-right: .3em;
+		}
+	}
+
+}
+@mixin list_inside_ico($clr: #000) {
+
+	li {
+		position: relative;
+		padding-left: 1.5em;
+		text-indent: -1.5em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: "";
+			display: inline-block;
+			background-color: $clr;
+			margin-right: .5em;
+			vertical-align: baseline;
+			width: .8em;
+			height: .8em;
+		}
+	}
+}
+
+@mixin list_inside_number01($style: decimal) {
+
+	list-style: none;
+	padding-left: 0;
+	display: table;
+
+	li {
+		@include mq(all) {
+			display: table-row;
+			counter-increment: table-ol;
+		}
+
+		&::before {
+			content: counter(table-ol, $style) ".";
+			display: table-cell;
+			white-space: nowrap;
+			padding-right: .5em;
+			text-align: right;
+		}
+
+	}
+}
+
+
+
+

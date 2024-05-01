@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+
+@mixin c-table__edit($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.c-table {
+
+		@extend %c-table;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include table_sct() {
+
+			}
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			/*
+				thead col
+				.js-tableTheadColの付与と該当jsソースが必須
+			*/
+			// .c-tableTheadCol.m-col__[size]_[col]
+			@include table_sct() {
+				$cols: 1; // カラム数の配列
+				$style: true; // デフォルトスタイルの有無 (true / false)
+				$sz: $sz;
+				@include table_layout_theadcol($cols: $cols, $style: $style, $sz: $sz);
+			}
+
+
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			@include table_sct() {
+				$style: true;
+				@include table_layout_pc_rst($style: $style);
+			}
+
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+

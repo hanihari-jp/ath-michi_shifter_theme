@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+@import "default/project/p__default";
+@import "default/project/p-blog__default";
+@import "default/project/p-mv__default";
+@import "default/project/p-box__default";
+@import "default/project/p-modal__default";
+@import "default/project/p-sec__default";
+@import "default/project/p-art__default";
+
+
+
+@mixin p-output__default($device: all, $bp: sp-tb-pc) {
+	@include p-art__default($device: $device, $bp: $bp);
+	@include p-blog__default($device: $device, $bp: $bp);
+	@include p-box__default($device: $device, $bp: $bp);
+	@include p-modal__default($device: $device, $bp: $bp);
+	@include p-mv__default($device: $device, $bp: $bp);
+	@include p-sec__default($device: $device, $bp: $bp);
+	@include p__default($device: $device, $bp: $bp);
+}
+
+
+

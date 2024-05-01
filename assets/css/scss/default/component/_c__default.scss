@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+
+
+@mixin c__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	.c-marker {
+
+		//@extend %c-txt;
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+
+}
+
+

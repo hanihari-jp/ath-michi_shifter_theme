@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+
+@mixin modifier_fnts($fss: false, $lhs: false, $fws: false, $lss: false, $ffss: false, $tas: false, $has: false, $btn: false, $clrs: false, $bgs: false,
+	$device: all, $bp: sp-pc, $sz: all) {
+
+	$sz_str: "";
+	@if $sz == all {
+		$sz_str: "";
+	} @else {
+		$sz_str: $sz+_;
+	}
+
+	@if $fss {
+		@each $fs in $fss {
+			&.m-fs__#{$sz_str}#{$fs} {
+				@include btn_sct_child($prnt: true, $btn: $btn) {
+					font-size: $fs/10+rem;
+				}
+			}
+		}
+	}
+	@if $lhs {
+		@each $lh in $lhs {
+			&.m-lh__#{$sz_str}#{$lh*10} {
+				@include btn_sct_child($prnt: true, $btn: $btn) {
+					line-height: $lh;
+				}
+			}
+		}
+	}
+	@if $fws {
+		@each $fw in $fws {
+			&.m-fw__#{$sz_str}#{$fw} {
+				@include btn_sct_child($prnt: true, $btn: $btn) {
+					font-weight: $fw;
+				}
+			}
+		}
+	}
+	@if $lss {
+		@each $ls in $lss {
+			&.m-ls__#{$sz_str}#{$ls} {
+				@include btn_sct_child($prnt: true, $btn: $btn) {
+					letter-spacing: $ls/1000+em;
+				}
+			}
+		}
+	}
+	@if $ffss {
+		@each $ffs in $ffss {
+			&.m-ffs__#{$sz_str}#{$ffs} {
+				@include btn_sct_child($prnt: true, $btn: $btn) {
+					@if $ffs == normal {
+						font-feature-settings: #{$ffs};
+					} @else if $ffs {
+						font-feature-settings: "#{$ffs}";
+					}
+				}
+			}
+		}
+	}
+	@if $tas {
+		@each $ta in $tas {
+			&.m-ta__#{$sz_str}#{$ta} {
+				@if $btn == true {
+					@include btn_sct() {
+						@include halign_select($ta: $ta);
+						@include btn_sct_child($btn: true) {
+							@include txtalign_select($ta: $ta);
+						}
+					}
+				} @else {
+					@include txtalign_select($ta: $ta);
+				}
+			}
+		}
+	}
+	@if $has {
+		@if $btn {
+			@each $ha in $has {
+				&.m-ha__#{$sz_str}#{$ha} {
+					@include txtalign_select($ta: $ha);
+				}
+			}
+		}
+	}
+	@if $clrs {
+		@each $key, $clr in $clrs {
+			&.m-clr__#{$sz_str}#{$key} {
+				@include btn_sct_child($prnt: true, $btn: $btn) {
+					color: $clr;
+					@if $btn {
+						@include ba($ba: ba, $bs: false) {
+							border-color: $clr;
+						}
+					}
+				}
+			}
+		}
+	}
+	@if $bgs {
+		@each $key, $bg in $bgs {
+			&.m-bg__#{$sz_str}#{$key} {
+				@include btn_sct($btn: $btn) {
+					background-color: $bg;
+					border-color: $bg;
+					@if $btn {
+						@include ba($ba: ba, $bs: false) {
+							border-color: $bg;
+						}
+					}
+				}
+
+
+			}
+		}
+	}
+
+
+}
+
+
+
+

@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+
+
+// break point
+
+$xxs_max_num: 374;
+$xs_min_num: 375;
+$xs_max_num: 480;
+
+$sm_min_num: 481;
+$sm_max_num: 767;
+$md_min_num: 768;
+$md_max_num: 991;
+
+$lg_min_num: 992;
+$lg_max_num: 1100;
+$xl_min_num: 1101;
+$xl_max_num: 1200;
+$xxl_min_num: 1201;
+
+
+
+// max-width
+$mxws: 900;
+
+
+// ff
+$ff_gothic: "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, "ヒラノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", sans-serif;;
+$ff_mincho: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", serif;
+$ff_en: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", serif;
+$ff_google: 'Karla', sans-serif;
+$ff_body: $ff_gothic;
+
+
+$opacity: .7;
+$transition: all 300ms ease-out 0s;
+
+
+
+// color
+$clr_bk01: #333;
+$clr_bk02: #4d4d4d;
+$clr_wt01: #fff;
+$clr_gy01: #999;
+$clr_gy02: #CCC;
+$clr_bl01: #4393DF;
+$clr_rd01: false;
+$clr_ye01: false;
+$clr_gn01: false;
+$clr_or01: false;
+$clr_pp01: false;
+
+$clr_body: $clr_bk01;
+$clr_a: $clr_bl01;
+
+
+// font-size
+$fs_body_sp: 14;
+$fs_body_pc: 16;
+$fs_ttl_sp: 24;
+$fs_ttl_pc: 32;
+$fs_blog_sp: $fs_body_sp;
+$fs_blog_pc: $fs_body_pc;
+
+// line-height
+$lh_body: 1.5;
+$lh_ttl: 1.3;
+$lh_btn: 1.3;
+$lh_txt: 1.7;
+$lh_blog: 1.8;
+
+// font-weight
+$fw_body: 400;
+$fw_ttl: 700;
+
+

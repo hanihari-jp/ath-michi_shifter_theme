@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+
+// button serect
+@mixin btn_sct($btn: true) {
+	@if $btn == false {
+			@content;
+	} @else {
+		a, .a, label {
+			@content;
+		}
+	}
+}
+// button child select
+@mixin btn_sct_child($prnt: false, $btn: false) {
+	@if $btn == false {
+				@content;
+	} @else {
+		@if $prnt == true {
+			@include btn_sct() {
+				span, input, button {
+					@content;
+				}
+			}
+		} @else {
+			span, input, button {
+					@content;
+			}
+		}
+	}
+
+}
+
+// button arrow
+@mixin btn_sct_arrow($btn: false){
+	@if $btn == true {
+		@include btn_sct() {
+			@include ba($ba: a, $dp: inline-block, $bs: true) {
+				@content;
+			}
+		}
+	} @else {
+				@content;
+	}
+}
+
+// arrow ▽
+@mixin btn_arwTri($wdt: 5, $hgt: 7, $dct: right, $btn: false) {
+	@include btn_sct_arrow($btn) {
+		width: 0;
+		height: 0;
+		background-color: transparent;
+		box-sizing: border-box;
+
+		@if $dct == top or $dct == t {
+			border-left: solid $wdt+px transparent !important;
+			border-right: solid $wdt+px transparent !important;
+			border-top: 0;
+			border-bottom-style: solid;
+			border-bottom-width: $hgt+px;
+		} @else if $dct == bottom or $dct == b {
+			border-left: solid $wdt+px transparent !important;
+			border-right: solid $wdt+px transparent !important;
+			border-bottom: 0;
+			border-top-style: solid;
+			border-top-width: $hgt+px;
+		} @else if $dct == left or $dct == l {
+			border-top: solid $wdt+px transparent !important;
+			border-bottom: solid $wdt+px transparent !important;
+			border-left: 0;
+			border-right-style: solid;
+			border-right-width: $hgt+px;
+		} @else if $dct == right or $dct == r {
+			border-top: solid $wdt+px transparent !important;
+			border-bottom: solid $wdt+px transparent !important;
+			border-right: 0;
+			border-left-style: solid;
+			border-left-width: $hgt+px;
+		}
+	}
+
+}
+// arrow ＞
+@mixin btn_arwThan($bwdt: 1, $hgt: 7, $dct: right, $btn: false) {
+	@include btn_sct_arrow($btn) {
+		width: $hgt+px;
+		height: $hgt+px;
+		box-sizing: border-box;
+		border-style: solid;
+		border-width: $bwdt+px;
+		border-top: 0;
+		border-left: 0;
+		background-color: transparent;
+
+		@if $dct == top or $dct == t {
+			-webkit-transform: rotate(-135deg);
+			   -moz-transform: rotate(-135deg);
+			    -ms-transform: rotate(-135deg);
+			     -o-transform: rotate(-135deg);
+			        transform: rotate(-135deg);
+		} @else if $dct == bottom or $dct == b {
+			-webkit-transform: rotate(45deg);
+			   -moz-transform: rotate(45deg);
+			    -ms-transform: rotate(45deg);
+			     -o-transform: rotate(45deg);
+			        transform: rotate(45deg);
+		} @else if $dct == left or $dct == l {
+			-webkit-transform: rotate(135deg);
+			   -moz-transform: rotate(135deg);
+			    -ms-transform: rotate(135deg);
+			     -o-transform: rotate(135deg);
+			        transform: rotate(135deg);
+		} @else if $dct == right or $dct == r {
+			-webkit-transform: rotate(-45deg);
+			   -moz-transform: rotate(-45deg);
+			    -ms-transform: rotate(-45deg);
+			     -o-transform: rotate(-45deg);
+			        transform: rotate(-45deg);
+		}
+	}
+}
+
+@mixin btn_arwSkew($bwdt: 1.5, $wdt: 20, $hgt: 5, $btn: false) {
+	@include btn_sct_arrow($btn) {
+		width: $wdt+px;
+		height: $hgt+px;
+		box-sizing: border-box;
+		border-style: solid;
+		border-right-width: $bwdt*1.5+px;
+		border-bottom-width: $bwdt+px;
+		border-top: 0;
+		border-left: 0;
+		-webkit-transform: skewX(45deg);
+		   -moz-transform: skewX(45deg);
+		    -ms-transform: skewX(45deg);
+		     -o-transform: skewX(45deg);
+		        transform: skewX(45deg);
+	}
+
+}
+
+
+
+@mixin modifier_btn_wdt_hgt($wdts: false, $wdts_max: false, $hgts: false, $btn: false,
+	$device: all, $bp: sp-pc, $sz: all) {
+
+	$sz_str: "";
+	@if $sz == all {
+		$sz_str: "";
+	} @else {
+		$sz_str: $sz+_;
+	}
+
+	@if $wdts {
+		@each $wdt in $wdts {
+			&.m-wdt__#{$sz_str}#{$wdt} {
+				@include btn_sct($btn: $btn) {
+					width: 100%;
+					min-width: $wdt+px;
+				}
+			}
+		}
+	}
+	@if $wdts_max {
+		@each $wdt in $wdts_max {
+			&.m-wdt-max__#{$sz_str}#{$wdt} {
+				@include btn_sct($btn: $btn) {
+					max-width: $wdt+px;
+				}
+			}
+		}
+	}
+	@if $hgts {
+		@each $hgt in $hgts {
+			&.m-hgt__#{$sz_str}#{$hgt} {
+				@include btn_sct($btn: $btn) {
+					height: auto;
+					min-height: $hgt+px;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+
+
+

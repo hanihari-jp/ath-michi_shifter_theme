@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+
+
+@mixin c-list__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%c-list {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			line-height: $lh_body;
+			text-align: justify;
+			@include lineHeightCrop($lh: $lh_body, $dp: b);
+
+
+			&Ul, ul {
+				@include list_inside_fullem($pref: "・");
+				//@include list_inside_fullem2($pref: "■");
+				//@include list_inside_halfem($pref: "-");
+				//@include list_inside_half2em($pref: "--");
+				//@include list_inside_ico($clr: #000);
+			}
+			&Ol, ol {
+				@include list_inside_number01($style: decimal);
+			}
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+

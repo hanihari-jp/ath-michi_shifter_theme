@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@import "edit/layout/l-wrapper__edit";
+@import "edit/layout/l-header__edit";
+@import "edit/layout/l-gNav__edit";
+@import "edit/layout/l-spHeader__edit";
+@import "edit/layout/l-spNav__edit";
+@import "edit/layout/l-main__edit";
+@import "edit/layout/l-column__edit";
+@import "edit/layout/l-breadcrumb__edit";
+@import "edit/layout/l-aside__edit";
+@import "edit/layout/l-footer__edit";
+
+
+
+@mixin l-output__edit($device: all, $bp: sp-tb-pc) {
+	@include l-aside__edit($device: $device, $bp: $bp);
+	@include l-breadcrumb__edit($device: $device, $bp: $bp);
+	@include l-column__edit($device: $device, $bp: $bp);
+	@include l-footer__edit($device: $device, $bp: $bp);
+	@include l-gNav__edit($device: $device, $bp: $bp);
+	@include l-header__edit($device: $device, $bp: $bp);
+	@include l-main__edit($device: $device, $bp: $bp);
+	@include l-spHeader__edit($device: $device, $bp: $bp);
+	@include l-spNav__edit($device: $device, $bp: $bp);
+	@include l-wrapper__edit($device: $device, $bp: $bp);
+}
+
+

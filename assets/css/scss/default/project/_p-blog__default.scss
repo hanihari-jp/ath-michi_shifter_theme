@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+
+@mixin p-blog__default($device: all, $bp: sp-tb-pc) {
+	$bp: $bp;
+
+	%p-blog {
+
+		$sz: all;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			line-height: $lh_blog;
+			text-align: justify;
+			@include lineHeightCrop($lh: $lh_txt, $dp: f);
+
+			h1, h2, h3, h4, h5, h6,
+				strong, em, dt, th {
+				font-weight: 700;
+				line-height: $lh_ttl;
+			}
+
+
+			p, ul, ol, dl, table {
+				margin-bottom: $lh_txt+em;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+/*
+			ul {
+				@include list_inside_fullem($pref: "・");
+				//@include list_inside_fullem2($pref: "■");
+				//@include list_inside_halfem($pref: "-");
+				//@include list_inside_half2em($pref: "--");
+				//@include list_inside_ico($clr: #000);
+			}
+			ol {
+				@include list_inside_number01($style: decimal);
+			}
+*/
+			a {
+				text-decoration: underline;
+				&:hover {
+					opacity: .5;
+				}
+			}
+
+
+
+		}
+
+		$sz: sp;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			font-size: ($fs_blog_sp/10)+rem;
+
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 4rem auto 2rem;
+			}
+
+			h1 {
+				font-size: 3.2rem;
+			}
+			h2 {
+				font-size: 2.8rem;
+			}
+			h3 {
+				font-size: 2.4rem;
+			}
+			h4 {
+				font-size: 2.1rem;
+			}
+			h5 {
+				font-size: 1.9rem;
+			}
+			h6 {
+				font-size: 1.7rem;
+			}
+
+
+		}
+
+		$sz: pc;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+			font-size: ($fs_blog_pc/10)+rem;
+
+			h1, h2, h3, h4, h5, h6 {
+				margin: 4rem auto 2rem;
+			}
+
+			h1 {
+				font-size: 3.6rem;
+			}
+			h2 {
+				font-size: 3.2rem;
+			}
+			h3 {
+				font-size: 2.8rem;
+			}
+			h4 {
+				font-size: 2.4rem;
+			}
+			h5 {
+				font-size: 2.1rem;
+			}
+			h6 {
+				font-size: 1.8rem;
+			}
+
+
+
+		}
+
+		$sz: tb;
+		@include mq($device: $device, $bp: $bp, $sz: $sz) {
+
+		}
+
+
+	}
+
+}
+
+
+
+
+
+
+

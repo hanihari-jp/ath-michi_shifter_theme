@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+
+
+@import "edit/theme/t__edit";
+@import "edit/theme/t-bg__edit";
+@import "edit/theme/t-fnt__edit";
+@import "edit/theme/t-grid__edit";
+@import "edit/theme/t-spc__edit";
+
+
+@mixin t-output__edit($device: all, $bp: sp-tb-pc) {
+	@include t-fnt__edit($device: $device, $bp: $bp);
+	@include t-bg__edit($device: $device, $bp: $bp);
+	@include t-spc__edit($device: $device, $bp: $bp);
+	@include t-grid__edit($device: $device, $bp: $bp);
+	@include t__edit($device: $device, $bp: $bp);
+}
+
